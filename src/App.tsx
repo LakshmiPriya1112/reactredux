@@ -1,13 +1,19 @@
-import { Provider } from "react-redux";
-import { store } from "./store/store";
-import MovieList from "./components/MovieList";
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import SearchBar from "./components/SearchBar";
+import SearchResults from "./pages/SearchResults";
+import Home from "./pages/Home";
 
 function App() {
   return (
-    <Provider store={store}>
-      <MovieList />
-    </Provider>
+    <Router>
+      <div className="p-4">
+        <SearchBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/search" element={<SearchResults />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
